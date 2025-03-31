@@ -1,0 +1,263 @@
+body {
+    background-color: #3f3b3b;
+    font-family: sans-serif;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    color: #ff361f;
+    text-shadow:
+            1px 1px 0px black,
+            -1px -1px 0px black,
+            -1px 1px 0px black,
+            1px -1px 0px black;
+}
+
+.employees_list_from_mission table td:last-child,
+.employees_list_from_mission table th:last-child {
+    width: 170px;
+    text-align: center;
+}
+
+
+input[type="number"] {
+    background-color: #625b5b;
+    color: #fff;
+    border: 1px solid #232323;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 1em;
+}
+.employees td, .employees th {
+    padding: 16px;
+}
+
+.table_container {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.table_wrapper {
+    flex: 1;
+    display: flex;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #4d4949;
+    margin-bottom: 20px;
+    table-layout: fixed;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+p {
+    color: #d6d6d6;
+}
+
+.important_p {
+    color: #d6d6d6;
+    text-align: center;
+    line-height: 100px;
+}
+
+
+td, th {
+    border: 2px solid #000000;
+    padding: 10px;
+    text-align: center;
+    color: #d6d6d6;
+}
+
+nav {
+    height: 100px;
+    background: #4d4949;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem calc((100vw - 1300px) /2);
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-bottom: 20px;
+}
+
+
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 0 1.5rem;
+    font-weight: 700;
+}
+
+.red-link {
+    color: #ff361f;
+    text-shadow:
+            1px 1px 0px black,
+            -1px -1px 0px black,
+            -1px 1px 0px black,
+            1px -1px 0px black;
+}
+
+.resources_employees {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.resources, .employees {
+    width: 48%;
+}
+
+.resources h2, .employees h2 {
+    color: #ff361f;
+    text-shadow:
+            1px 1px 0px black,
+            -1px -1px 0px black,
+            -1px 1px 0px black,
+            1px -1px 0px black;
+}
+
+.resources table, .employees table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.menu_button {
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    border: 2px solid #000000;
+    color: #ff361f;
+    cursor: pointer;
+    border-radius: 15px;
+    text-decoration: none;
+    background-color: #54201f;
+    display: inline-block;
+    text-align: center;
+    text-shadow:
+            1px 1px 0px black,
+            -1px -1px 0px black,
+            -1px 1px 0px black,
+            1px -1px 0px black;
+}
+
+.menu_button:hover {
+    color: #d6d6d6;
+    border-color: #ff361f; /* Zmiana koloru obramowania podczas najechania */
+    text-shadow:
+            1px 1px 0px black,
+            -1px -1px 0px black,
+            -1px 1px 0px black,
+            1px -1px 0px black;
+}
+
+.update_button {
+    width: 140px;
+    height: 35px;
+    line-height: 25px;
+    font-size: 15px;
+    border: 1px solid #000000;
+    color: #ff361f;
+    cursor: pointer;
+    border-radius: 7.5px;
+    text-decoration: none;
+    background-color: #54201f;
+    display: inline-block;
+    text-align: center;
+    text-shadow:
+            1px 1px 0px black,
+            -1px -1px 0px black,
+            -1px 1px 0px black,
+            1px -1px 0px black;
+}
+
+.update_button:hover {
+    color: #d6d6d6;
+    border-color: #ff361f;
+    text-shadow:
+            1px 1px 0px black,
+            -1px -1px 0px black,
+            -1px 1px 0px black,
+            1px -1px 0px black;
+}
+
+.employee_button {
+    display: inline-block;
+    padding: 10px 10px;
+    font-size: 15px;
+    color: #ff361f;
+    background-color: #54201f;
+    border: 1px solid #000000;
+    border-radius: 7.5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    text-shadow:
+            1px 1px 0px black,
+            -1px -1px 0px black,
+            -1px 1px 0px black,
+            1px -1px 0px black;
+}
+
+.employee_button:hover {
+    color: #d6d6d6;
+    border-color: #ff361f;
+    text-shadow:
+            1px 1px 0px black,
+            -1px -1px 0px black,
+            -1px 1px 0px black,
+            1px -1px 0px black;
+}
+
+.delete_button {
+    width: 140px;
+    height: 35px;
+    line-height: 25px;
+    font-size: 15px;
+    border: 1px solid #000000;
+    color: #ff361f;
+    cursor: pointer;
+    border-radius: 7.5px;
+    text-decoration: none;
+    background-color: #54201f;
+    display: inline-block;
+    text-align: center;
+    text-shadow:
+            1px 1px 0px black,
+            -1px -1px 0px black,
+            -1px 1px 0px black,
+            1px -1px 0px black;
+}
+
+.delete_button:hover {
+    color: #d6d6d6;
+    border-color: #ff361f;
+    text-shadow:
+            1px 1px 0px black,
+            -1px -1px 0px black,
+            -1px 1px 0px black,
+            1px -1px 0px black;
+}
+
+
+.form-container {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Missions</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+</head>
+<body>
+<nav>
+  <a href="/home"><img src="/images/fatui_symbol.webp" alt="Fatui logo" width="90"></a>
+  <a class="menu_button" href="/home"><div class="nav-items" >Home</div></a>
+  <a class="menu_button" href="/missions"><div class="nav-items">Missions</div></a>
+  <a class="menu_button" href="/employees"><div class="nav-items">Employees</div></a>
+  <a class="menu_button" href="/information"><div class="nav-items">Information</div></a>
+</nav>
+<div class="table_container">
+  <h1>Missions</h1>
+  <p class="important_p" th:if="${missions == null}">No employees assigned.</p>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Description</th>
+      <th>Start date</th>
+      <th>Deadline</th>
+      <th>Fund</th>
+      <th>Details</th>
+    </tr>
+    <tr th:each=" mission : ${missions}">
+      <td th:text="${mission.id}"></td>
+      <td th:text="${mission.description}"></td>
+      <td th:text="${mission.startDate}"></td>
+      <td th:text="${mission.deadline}"></td>
+      <td th:text="${mission.fund}"></td>
+      <td>
+        <a class="employee_button" th:href="@{'/missions/' + ${mission.id}}">See details</a>
+      </td>
+
+    </tr>
+  </table>
+</div>
+</body>
+</html>

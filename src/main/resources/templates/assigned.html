@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assigned employees</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+</head>
+<body>
+<nav>
+  <a href="/home"><img src="/images/fatui_symbol.webp" alt="Fatui logo" width="90"></a>
+  <a class="menu_button" href="/home"><div class="nav-items" >Home</div></a>
+  <a class="menu_button" href="/missions"><div class="nav-items">Missions</div></a>
+  <a class="menu_button" href="/employees"><div class="nav-items">Employees</div></a>
+  <a class="menu_button" href="/information"><div class="nav-items">Information</div></a>
+</nav>
+
+<div class="employees_list_from_mission">
+  <p class="important_p" th:if="${harbingers.isEmpty() && seniorAgents.isEmpty() && specialAgents.isEmpty() && normalAgents.isEmpty()}">No employees assigned.</p>
+  <div class="table_container" th:if="${!harbingers.isEmpty()}">
+    <h1>Assigned harbingers</h1>
+    <table>
+      <tr>
+        <th>Harbinger ID</th>
+        <th>Title</th>
+        <th>Number</th>
+        <th>Date of joining</th>
+        <th>Region</th>
+        <th>Performance points</th>
+        <th>Delete from mission</th>
+      </tr>
+      <tr th:each=" harbinger : ${harbingers}">
+        <td th:text="${harbinger.id}"></td>
+        <td th:text="${harbinger.title}"></td>
+        <td th:text="${harbinger.number}"></td>
+        <td th:text="${harbinger.joiningDate}"></td>
+        <td th:text="${harbinger.regionFrom.name}"></td>
+        <td th:text="${harbinger.performancePoints}"></td>
+        <td>
+          <form th:action="@{/missions/{id}/deleteHarbinger(id=${id}, harbingerId=${harbinger.id})}" method="post">
+            <button class="delete_button" type="submit" onclick="clicked()">Delete</button>
+          </form>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="table_container" th:if="${!seniorAgents.isEmpty()}">
+    <h1>Assigned senior agents</h1>
+    <table>
+      <tr>
+        <th>Agent ID</th>
+        <th>Role</th>
+        <th>Date of joining</th>
+        <th>Senior years of experience</th>
+        <th>Delete from mission</th>
+      </tr>
+      <tr th:each=" seniorAgent : ${seniorAgents}">
+        <td th:text="${seniorAgent.id}"></td>
+        <td th:text="${seniorAgent.role}"></td>
+        <td th:text="${seniorAgent.joiningDate}"></td>
+        <td th:text="${seniorAgent.seniorYearsOfExperience}"></td>
+        <td>
+        <form th:action="@{/missions/{id}/deleteAgent(id=${id}, agentId=${seniorAgent.id})}" method="post">
+          <button class="delete_button" type="submit">Delete</button>
+        </form>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="table_container" th:if="${!specialAgents.isEmpty()}">
+    <h1>Assigned special agents</h1>
+    <table>
+      <tr>
+        <th>Agent ID</th>
+        <th>Role</th>
+        <th>Date of joining</th>
+        <th>Special skill</th>
+        <th>Delete from mission</th>
+      </tr>
+      <tr th:each=" specialAgent : ${specialAgents}">
+        <td th:text="${specialAgent.id}"></td>
+        <td th:text="${specialAgent.role}"></td>
+        <td th:text="${specialAgent.joiningDate}"></td>
+        <td th:text="${specialAgent.specialSkill}"></td>
+        <td>
+          <form th:action="@{/missions/{id}/deleteAgent(id=${id}, agentId=${specialAgent.id})}" method="post">
+            <button class="delete_button" type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="table_container" th:if="${!normalAgents.isEmpty()}">
+    <h1>Assigned normal agents</h1>
+    <table>
+      <tr>
+        <th>Agent ID</th>
+        <th>Role</th>
+        <th>Date of joining</th>
+        <th>Supervisor</th>
+        <th>Delete from mission</th>
+      </tr>
+      <tr th:each=" normalAgent : ${normalAgents}">
+        <td th:text="${normalAgent.id}"></td>
+        <td th:text="${normalAgent.role}"></td>
+        <td th:text="${normalAgent.joiningDate}"></td>
+        <td th:text="${normalAgent.supervisor.id}"></td>
+        <td>
+          <form th:action="@{/missions/{id}/deleteAgent(id=${id}, agentId=${normalAgent.id})}" method="post">
+            <button class="delete_button" type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</body>
+<script>
+  function clicked(e)
+  {
+    if(!confirm('Are you sure?')) {
+      e.preventDefault();
+    }
+  }
+</script>
+</html>

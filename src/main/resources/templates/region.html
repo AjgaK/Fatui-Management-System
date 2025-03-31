@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Region details</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+</head>
+<body>
+<nav>
+  <a href="/home"><img src="/images/fatui_symbol.webp" alt="Fatui logo" width="90"></a>
+  <a class="menu_button" href="/home"><div class="nav-items" >Home</div></a>
+  <a class="menu_button" href="/missions"><div class="nav-items">Missions</div></a>
+  <a class="menu_button" href="/employees"><div class="nav-items">Employees</div></a>
+  <a class="menu_button" href="/information"><div class="nav-items">Information</div></a>
+</nav>
+<div style="text-align: center">
+  <img th:src="${region.logoPath}" alt="Image of emblem" width="200">
+</div>
+<div class="table_container">
+  <h1>Gods</h1>
+  <p class="important_p" th:if="${gods.isEmpty()}">No gods in this region.</p>
+  <table th:if="${!gods.isEmpty()}">
+    <tr>
+      <th>Name</th>
+      <th>Element</th>
+      <th>Age</th>
+    </tr>
+    <tr th:each=" god : ${gods}">
+      <td th:text="${god.name}"></td>
+      <td th:text="${god.element}"></td>
+      <td th:text="${god.age}"></td>
+    </tr>
+  </table>
+</div>
+<div class="table_container">
+  <h1>Leaders</h1>
+  <p class="important_p" th:if="${leaders.isEmpty()}">No leaders in this region.</p>
+  <table th:if="${!leaders.isEmpty()}">
+    <tr>
+      <th>Name</th>
+      <th>Start date</th>
+      <th>End date</th>
+    </tr>
+    <tr th:each=" leader : ${leaders}">
+      <td th:text="${leader.name}"></td>
+      <td th:text="${leader.startDate}"></td>
+      <td th:text="${leader.endDate}"></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

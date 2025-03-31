@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Region information</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+</head>
+<body>
+<nav>
+  <a href="/home"><img src="/images/fatui_symbol.webp" alt="Fatui logo" width="90"></a>
+  <a class="menu_button" href="/home"><div class="nav-items" >Home</div></a>
+  <a class="menu_button" href="/missions"><div class="nav-items">Missions</div></a>
+  <a class="menu_button" href="/employees"><div class="nav-items">Employees</div></a>
+  <a class="menu_button" href="/information"><div class="nav-items">Information</div></a>
+</nav>
+<div class="table_container">
+  <h1>Missions</h1>
+  <p class="important_p" th:if="${regions == null}">No regions in the database.</p>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Emblem</th>
+      <th>Name</th>
+      <th>Element</th>
+      <th>Description</th>
+      <th>Details</th>
+    </tr>
+    <tr th:each=" region : ${regions}">
+      <td th:text="${region.id}"></td>
+      <td><img th:src="${region.logoPath}" alt="Image of emblem" width="90"></td>
+      <td th:text="${region.name}"></td>
+      <td th:text="${region.element}"></td>
+      <td th:text="${region.description}"></td>
+      <td>
+        <a class="employee_button" th:href="@{'/information/' + ${region.id}}">See details</a>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

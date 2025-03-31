@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Mission details</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+</head>
+<body>
+<nav>
+  <a href="/home"><img src="/images/fatui_symbol.webp" alt="Fatui logo" width="90"></a>
+  <a class="menu_button" href="/home"><div class="nav-items" >Home</div></a>
+  <a class="menu_button" href="/missions"><div class="nav-items">Missions</div></a>
+  <a class="menu_button" href="/employees"><div class="nav-items">Employees</div></a>
+  <a class="menu_button" href="/information"><div class="nav-items">Information</div></a>
+</nav>
+<div class="table_container">
+  <h1>Mission details</h1>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Description</th>
+      <th>Start date</th>
+      <th>Deadline</th>
+      <th>Fund</th>
+    </tr>
+    <tr>
+      <td th:text="${mission.id}"></td>
+      <td th:text="${mission.description}"></td>
+      <td th:text="${mission.startDate}"></td>
+      <td th:text="${mission.deadline}"></td>
+      <td th:text="${mission.fund}"></td>
+    </tr>
+  </table>
+<div class="resources_employees">
+    <div class="resources">
+    <form th:action="@{/missions/{id}/updateResources(id=${mission.id})}" method="post">
+          <h1>Resources</h1>
+          <p th:if="${resources.isEmpty()}">No resources assigned.</p>
+          <table>
+            <tr th:each="resource : ${resources}">
+              <td th:text="${resource.type}"></td>
+              <td>
+                <input type="number" min="0" th:name="'resourceQuantities[' + ${resource.id} + ']'" th:value="${resource.quantity}" />
+              </td>
+            </tr>
+          </table>
+    <button type="submit" class="update_button" th:if="${!resources.isEmpty()}">Update Quantities</button>
+    </form>
+    </div>
+  <div class="employees">
+    <h1>Employees</h1>
+    <table>
+      <tr>
+        <th>Harbingers</th>
+        <th>Agents</th>
+      </tr>
+      <tr>
+        <td th:text="${harbingersCount}"></td>
+        <td th:text="${agentsCount}"></td>
+      </tr>
+    </table>
+    <a class="employee_button" th:href="@{/missions/{id}/assigned(id=${mission.id})}">Show assigned employees</a>
+  </div>
+</div>
+</div>
+</body>
+</html>
